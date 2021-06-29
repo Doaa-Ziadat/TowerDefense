@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     void Start()
     {
-        
+
     }
 
 
@@ -16,5 +16,16 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         Destroy(gameObject, 3);
+    }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Enemy")
+        {
+
+            Debug.Log("am hit an enemy");
+            Destroy(gameObject);
+
+        }
+
     }
 }

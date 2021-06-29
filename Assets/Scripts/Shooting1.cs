@@ -14,9 +14,9 @@ public class Shooting1 : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-
             Instantiate(obj, posofres.position, posofres.rotation);
 
+
         }
-}
+    }
 }
