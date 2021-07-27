@@ -16,10 +16,15 @@ public class PlayerCont : MonoBehaviour
     public GameObject sub;
     public int HP = 100;
     public GameObject error;
+    public GameObject GameOver;
+    public Text Count;
+    public int Count_INT;
+    public Text Count_Panel;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         gold = PlayerPrefs.GetInt("Cash");
+        Time.timeScale = 1;
 
     }
 
@@ -28,6 +33,9 @@ public class PlayerCont : MonoBehaviour
         PlayerPrefs.SetInt("Cash", gold);
 
         tx.text = "HP/ " + HP.ToString();
+        Count.text = Count_INT.ToString();
+        Count_Panel.text = Count_INT.ToString();
+
         gold_text.text = "Gold/ " + gold.ToString();
         if (Input.GetKey(KeyCode.W))
         {
@@ -74,6 +82,12 @@ public class PlayerCont : MonoBehaviour
         {
 
             anim.SetInteger("shooting", 0);
+        }
+
+
+        if (HP <= 0) {
+            GameOver.active = true;
+            Time.timeScale = 0;
         }
     }
     void FixedUpdate()

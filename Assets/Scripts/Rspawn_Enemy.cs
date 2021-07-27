@@ -40,7 +40,7 @@ public class Rspawn_Enemy : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Start();
 
     }

@@ -11,7 +11,6 @@ public class Ai : MonoBehaviour
     private Animator anim;
     public int HP = 100;
     private PlayerCont Pcode;
-    public SubMachin subcode;
     public GameObject Sub;
     void Start()
     {
@@ -20,6 +19,7 @@ public class Ai : MonoBehaviour
         Target = GameObject.FindGameObjectsWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
         Pcode = Target[0].GetComponent<PlayerCont>();
+
         attack = false;
     }
 
@@ -77,12 +77,16 @@ public class Ai : MonoBehaviour
     }
 
     public void Damge() {
-
-        Pcode.HP = Pcode.HP - 10;
+        if (Pcode.HP > 0)
+        {
+            Pcode.HP = Pcode.HP - 10;
+        }
     }
     public void dead()
     {
         Pcode.gold = Pcode.gold + 10;
+        Pcode.Count_INT = Pcode.Count_INT + 1;
+
 
     }
 }
